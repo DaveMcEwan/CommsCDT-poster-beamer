@@ -1,8 +1,116 @@
-\documentclass{article}
-% * <dave.mcewan@bristol.ac.uk> 2018-07-05T14:28:17.920Z:
-%
-% ^.
-\usepackage[utf8]{inputenc}
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+\documentclass{beamer}
+
+% http://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf
+%% Possible paper sizes: a0, a0b, a1, a2, a3, a4.
+%% Font sizes can be changed using the scale option.
+\usepackage[size=a1,orientation=portrait,scale=1.8]{beamerposter}
+
+\usetheme{CommsCDT}
+\usecolortheme{CommsCDT}
+
+% NOTE: Fill in your details here.
+\author[YOUR.NAME@bristol.ac.uk]{YOUR NAME}
+\title{YOURTITLE}
+\institute{University of Bristol}
+\sponsortext{This project is supported by the Engineering and Physical Sciences
+Research Council (EP/I028153/ and EP/L016656/1); the University of Bristol and
+YOUR SPONSOR.}
+\sponsorlogo{\includegraphics[width=6cm]{sponsor-logo.jpg}}
+
+% NOTE: Declare any custom TeX commands and use packages here.
+
 \begin{document}
-(Type your content here.)
+\begin{frame}[fragile]
+\begin{center}
+
+
+\begin{sectionbox}{Aim}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+\end{sectionbox}
+
+
+\begin{columns}[T]
+% {{{ Left Column
+\begin{column}{.48\textwidth}
+
+\begin{sectionbox}{Introduction}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.
+\begin{enumerate}
+\item MIMO
+\item mmWave
+\item Throughput
+\end{enumerate}
+\end{sectionbox}
+
+
+\begin{sectionbox}{Analysis}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.
+\begin{align}
+\label{eq:pr}
+\Pr(X) &= \frac{1}{N} \left| X \right|
+\\
+\label{eq:bayes} % Bayes Theorem
+\Pr(X \mid Y) &= \frac{\Pr(X \cap Y)}{\Pr(Y)},
+    \quad \text{if}\ \Pr(Y) \neq 0
+\end{align}
+\end{sectionbox}
+
+\end{column}
+% }}} Left Column
+
+% {{{ Right Column
+\begin{column}{.48\textwidth}
+
+\begin{sectionbox}{Measurement}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{researchers.jpg}
+    \caption{Real CDT researchers.
+    \label{fig:researchers}}
+\end{figure}
+\end{sectionbox}
+
+
+\begin{sectionbox}{Lorem Ipsum}
+\begin{itemize}
+\item Lorem
+\item ipsum
+\item dolor
+\item sit
+\item amet,
+\item consectetur
+\item adipiscing
+\item elit,
+\item sed
+\item do
+\item eiusmod
+\item tempor
+\end{itemize}
+\end{sectionbox}
+
+\end{column}
+% }}} Right Column
+\end{columns}
+
+
+\end{center}
+\end{frame}
 \end{document}

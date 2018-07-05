@@ -1,0 +1,173 @@
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% https://ctan.org/tex-archive/fonts/opensans
+% mirror.ox.ac.uk/sites/ctan.org/fonts/opensans/doc/fonts/opensans/opensans.pdf
+\usepackage[defaultsans]{opensans}
+
+\usepackage{grffile} % Allow dots in filenames.
+\usepackage{graphicx}
+\graphicspath{{../img/}} % Images either in current or sibling img directory.
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{relsize} % \mathlarger
+\DeclareMathOperator{\NaN}{NaN}
+\newcommand{\indep}{\perp\!\!\!\perp} % independence symbol
+\newcommand{\nindep}{\centernot{\indep}} % not-independent symbol
+\newcommand{\nimplies}{\centernot{\implies}} % does-not-imply symbol
+\newcommand{\niff}{\centernot{\iff}} % not-iff symbol
+\newcommand{\G}{\mathcal{G}} % Graph
+\newcommand{\E}{\mathcal{E}} % Edges
+\newcommand{\V}{\mathcal{V}} % Nodes (vertices)
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\rationals}{\mathbb{Q}}
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\complex}{\mathbb{C}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\vec}[1]{\mathbf{#1}} % Vector as bold, not the overhead arrow.
+\newcommand{\transpose}[1]{{#1}^\mathrm{T}}
+\newcommand\restrict[1]{\raisebox{-.5ex}{$\big|$}_{#1}} % Function restriction
+
+\usepackage[binary-units]{siunitx}
+\let\DeclareUSUnit\DeclareSIUnit
+\let\US\SI
+\DeclareUSUnit\ounce{oz} % Ounce
+\DeclareUSUnit\inch{in} % Inch
+\DeclareUSUnit\foot{ft} % 12 inches
+\DeclareUSUnit\mil{mil} % Thousands of an inch
+\DeclareSIUnit\dBi{dBi} % Relative to an isotropic radiator.
+
+\usepackage[most]{tcolorbox}
+\newtcolorbox{sectionbox}[2][]{%
+    colback=bg,
+    colframe=LightBlueCDT,
+    fonttitle=\Large,
+    coltitle=DarkBlueCDT,
+    colbacktitle=bg,
+    enhanced,
+    attach boxed title to top left={yshift=-1.2mm,
+    xshift=2mm},
+    title=#2,
+    after skip=1cm,
+    #1}
+
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
+
+% Top banner.
+\setbeamerfont{headline}{family=\sffamily}
+\setbeamertemplate{headline}{
+    \hfill
+    \begin{beamercolorbox}[wd=0.67\textwidth]{cdtline}
+        \vskip1.0cm
+        \centering
+
+        % QR code generated from Communications CDT URL as SVG.
+        % inkscape -z -C -f cdt-qr.svg -A cdt-qr.pdf
+        \includegraphics[width=3cm]{cdt-qr.pdf}~
+        {\centering \large \sffamily
+            EPSRC Centre for Doctoral Training in Communications}
+
+        \vskip1.0cm
+    \end{beamercolorbox}
+    \hfill
+    \hfill
+
+    \begin{beamercolorbox}[wd=\paperwidth]{titleline}
+        \vskip2cm
+
+        \centering
+        \parbox{0.95\linewidth}{
+            \normalbaselines
+            \centering
+            {\Large \textbf{\inserttitle}}
+            \par
+            \vskip0.5cm
+            {\small
+             \insertauthor,\,
+             \insertinstitute,\,
+             \texttt{\insertshortauthor}}
+        }
+
+        \vskip2cm
+    \end{beamercolorbox}
+
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=north west,inner sep=0pt] at
+            ($(current page.north west)+(1cm,-1cm)$) {
+
+            % https://www.bris.ac.uk/visual-identity/brand/uob-logo.pdf
+            % https://www.bris.ac.uk/visual-identity/brand/resources/logo-full-colour.png
+            \includegraphics[width=8cm]{uob-logo.png}
+        };
+    \end{tikzpicture}
+
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=north east,inner sep=0pt] at
+            ($(current page.north east)-(1cm,1cm)$) {
+
+            % https://epsrc.ukri.org/epsrc/includes/themes/EPSRC/images/logo.png
+            \includegraphics[width=8cm]{epsrc-logo.png}
+        };
+    \end{tikzpicture}
+}
+
+% Content blocks.
+\setbeamertemplate{block begin}{
+    \centering
+    \vskip0.5cm
+    \begin{beamercolorbox}[colsep*=0pt]{block title}
+        \usebeamerfont{block title}
+        \vskip0.5cm
+        \leftskip0.5cm
+        \insertblocktitle
+        \vskip0.5cm
+    \end{beamercolorbox}
+
+    {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}
+    \begin{beamercolorbox}[colsep*=0pt,sep=0.5em,vmode]{block body}
+        \vskip0.5cm
+        \usebeamerfont{block body}
+        \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}
+
+        % Use a minipage to prevent text spilling too far to the right.
+        \begin{minipage}{0.95\linewidth}
+}
+\setbeamertemplate{block end}{
+        \end{minipage}
+        \vskip0.5cm
+    \end{beamercolorbox}
+}
+
+% Poster should not include symbols for moving between slides.
+\setbeamertemplate{navigation symbols}{}
+
+% Footer containing (optional) sponsorship details.
+\newcommand{\sponsortext}[1]{\def\foottext{#1}}
+\newcommand{\sponsorlogo}[1]{\def\footimage{#1}}
+\setbeamerfont{footline}{size=\small,family=\sffamily}
+\setbeamertemplate{footline}{
+    \begin{beamercolorbox}[wd=\paperwidth]{separation line}
+            \rule{0pt}{.5em}
+    \end{beamercolorbox}
+
+    \ifdefined\foottext
+    \begin{beamercolorbox}[wd=0.8\textwidth,ht=4cm]{sponsorline}
+        \leftskip1cm
+        \foottext
+        \vskip1.5ex
+    \end{beamercolorbox}
+    \fi
+
+    \ifdefined\footimage
+    \tikz[overlay,remember picture]%
+    \node[anchor=south east,inner sep=0pt] at
+        ($(current page.south east)+(-1cm,0.5cm)$) {
+        \footimage
+    };
+    \fi
+}
