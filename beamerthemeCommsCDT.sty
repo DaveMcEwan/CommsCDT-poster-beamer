@@ -11,15 +11,23 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
-\usepackage{relsize} % \mathlarger
+\usepackage{relsize} % mathlarger
 \DeclareMathOperator{\NaN}{NaN}
-\newcommand{\indep}{\perp\!\!\!\perp} % independence symbol
-\newcommand{\nindep}{\centernot{\indep}} % not-independent symbol
-\newcommand{\nimplies}{\centernot{\implies}} % does-not-imply symbol
-\newcommand{\niff}{\centernot{\iff}} % not-iff symbol
-\newcommand{\G}{\mathcal{G}} % Graph
-\newcommand{\E}{\mathcal{E}} % Edges
-\newcommand{\V}{\mathcal{V}} % Nodes (vertices)
+\newcommand{\indep}{\perp\!\!\!\perp} % Define the independent symbol
+\newcommand{\nindep}{\centernot{\indep}} % Define the not-independent symbol
+\newcommand{\nimplies}{\centernot{\implies}} % Define the not-implies symbol
+\newcommand{\niff}{\centernot{\iff}} % Define the not-iff symbol
+\newcommand{\Gr}{\mathcal{G}} % Graph
+\newcommand{\Ed}{\mathcal{E}} % Edges
+\newcommand{\Ve}{\mathcal{V}} % Nodes (vertices)
+\DeclareMathOperator{\Ex}{E} % Expectation
+\DeclareMathOperator{\Var}{Var} % Variance
+\DeclareMathOperator{\Cov}{Cov} % Covariance
+\DeclareMathOperator{\Dep}{Dep} % Dependence
+\DeclareMathOperator{\Mean}{Mean} % Arithmetic Median
+\DeclareMathOperator{\WMean}{WeightedMean} % Weighted Arithmetic Median
+\DeclareMathOperator{\Median}{Median} % Median
+\DeclareMathOperator{\WMedian}{WeightedMedian} % Weighted Median
 \newcommand{\reals}{\mathbb{R}}
 \newcommand{\rationals}{\mathbb{Q}}
 \newcommand{\integers}{\mathbb{Z}}
@@ -29,7 +37,11 @@
 \renewcommand{\Im}{\operatorname{Im}}
 \renewcommand{\vec}[1]{\mathbf{#1}} % Vector as bold, not the overhead arrow.
 \newcommand{\transpose}[1]{{#1}^\mathrm{T}}
-\newcommand\restrict[1]{\raisebox{-.5ex}{$\big|$}_{#1}} % Function restriction
+\newcommand\restrict[1]{\raisebox{-.7ex}{$|$}_{#1}} % Function restriction
+\renewcommand{\leq}{\leqslant} % Non-US convention
+\renewcommand{\geq}{\geqslant} % Non-US convention
+\renewcommand{\nleq}{\nleqslant} % Non-US convention
+\renewcommand{\ngeq}{\ngeqslant} % Non-US convention
 
 \usepackage[binary-units]{siunitx}
 \let\DeclareUSUnit\DeclareSIUnit
@@ -116,6 +128,7 @@
 }
 
 % Content blocks.
+\usefonttheme[onlymath]{serif} % Math mode should not be sans-serif.
 \setbeamertemplate{block begin}{
     \centering
     \vskip0.5cm
